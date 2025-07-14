@@ -5,9 +5,9 @@ export const MainPage = () => {
       <header>
         <ul>
           <li>
-            <NavLink to='./' >Home</NavLink>
+            <NavLink to='/'>Home</NavLink>
             <li>
-              <NavLink to='./movies'>To movies</NavLink>
+              <NavLink to='/movies'>To movies</NavLink>
             </li>
           </li>
         </ul>
