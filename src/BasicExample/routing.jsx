@@ -5,6 +5,7 @@ import { MoviesPage } from "./MoviesPage";
 import { Movie } from "./Movie";
 import { fetchMovieDetails } from "./fetch";
 import { ErrorPage } from "./errorPage";
+import { Rewiev } from "./Rewiev";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,15 @@ export const router = createBrowserRouter([
          path: "/movie/:id",
         element: <Movie/>,
         loader : fetchMovieDetails,
+      },
+      {
+         path: "/movie/:movieId",
+        element: <Movie/>,
+        loader :fetchMovieDetails ,
+        children: [{
+    path: "/movie/:movieId/rewiev",
+    element: <Rewiev/>,
+        }]
       }
     ],
   },
