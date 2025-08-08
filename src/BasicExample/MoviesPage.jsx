@@ -3,11 +3,13 @@ import { Link, useSearchParams } from "react-router-dom";
 export const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   console.log(searchParams);
+
+  const handleChange =(e)=>{
+    setSearchParams({sort: e.target.value})
+  }
   return (
     <>
-    <input onChange={(e)=>{
-      setSearchParams({value: e.target.value})
-    }} value={searchParams.get('value') ?? ''} type="text"/>
+    <input type='text' value={searchParams.get('sort')} onChange={handleChange} />
     <button onClick={()=>{
       setSearchParams({a: 5})
     }} type="submit">Пошук</button>
