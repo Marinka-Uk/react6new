@@ -1,5 +1,7 @@
 import { devToolsEnhancer } from '@redux-devtools/extension'
 import {legacy_createStore as createStore} from 'redux'
+import {addTascks} from './actions'
+import {rootReducer} from './reduce'
 
 const initialState = {
  tasks: [
