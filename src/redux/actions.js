@@ -1,4 +1,4 @@
-export const addTascks = (newTask) =>{
+export const addTasks = (newTask) =>{
     return {
         type: 'tasks/addTascks',
         payload: newTask,
@@ -6,7 +6,7 @@ export const addTascks = (newTask) =>{
 }
 
 
-export const deleteTascks = (idTask)=>{
+export const deleteTasks = (idTask)=>{
     return {
         type: 'tasks/deleteTascks',
         payload: idTask,
@@ -23,7 +23,7 @@ export const toggleComplete = (idTask)=>{
 }
 
 
-export const filterTascks = (statusFiter)=>{
+export const filterTasks = (statusFiter)=>{
  return {
         type: 'tasks/changeFilter',
         payload: statusFiter,

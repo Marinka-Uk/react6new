@@ -1,9 +1,8 @@
 import { devToolsEnhancer } from '@redux-devtools/extension'
 import {legacy_createStore as createStore} from 'redux'
-import {addTascks} from './actions'
 import {rootReducer} from './reduce'
 
-const initialState = {
+export const initialState = {
  tasks: [
    { id: 0, text: "Learn HTML and CSS", completed: true },
    { id: 1, text: "Get good at JavaScript", completed: true },
@@ -15,32 +14,6 @@ const initialState = {
    status: "all",
  },
  }
-// {
-//     type: 'tacks/addTascks'
-// }
-export const addTascks = (newTask)=>{
-    return {
-        type : 'tascks/addTascks',
-        playload  : newTask,
-    }
-}
-
-
-
-
-const rootReducer = (state = initialState, action)=>{
-    switch(action.type){
-        case 'tacks/addTascks':
-            return state
-              case 'tacks/deleteTascks':
-                return state
-
-                default: 
-                return state
-    }
-return state
-}
-
 const enhancer = devToolsEnhancer()
 
 

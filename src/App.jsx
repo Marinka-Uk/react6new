@@ -1,20 +1,16 @@
-import { useDispatch } from "react-redux";
-import {addTascks} from './redux/store'
 
-export const App = () => {
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(addTascks({
-         id: 5, 
-         text: "My new task", 
-         completed: false
-         }))
-  };
+import { TaskList } from "./Components/TaskList/TaskList";
+import { TaskForm } from "./Components/TaskForm/TaskForm";
 
-  return (
-    <>
-      <h1>Redux</h1>
-      <button onClick={handleClick}>додати завдання</button>
-    </>
-  );
-};
+
+
+export const App =()=>{
+
+  return <>
+  <h1>
+    Redux
+  </h1>
+  <TaskList/>
+  <TaskForm/>
+  </>
+}
