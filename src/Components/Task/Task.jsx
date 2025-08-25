@@ -5,12 +5,15 @@ export const Task = ({ task }) => {
   return (
     <div className={css.wrapper}>
       <input
+      onChange={()=> dispatch(chekTasks(task.id))}
         type="checkbox"
         className={css.checkbox}
         checked={task.completed}
       />
       <p className={css.text}>{task.text}</p>
-      <button className={css.btn}>
+      <button onClick={()=> {
+        dispatchEvent(deleteTasks(task.id))
+      }} className={css.btn}>
         <MdClose size={24} />
       </button>
     </div>
