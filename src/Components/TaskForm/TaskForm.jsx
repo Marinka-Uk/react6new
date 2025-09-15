@@ -2,7 +2,7 @@
 import { MdAddTask } from "react-icons/md";
 import css from "./TaskForm.module.css";
 import { useDispatch } from "react-redux";
-import {addTasks} from '../../redux/actions'
+import {addTasks} from '../../redux/Slices/TaskSlice'
 
 export const TaskForm = () => {
 const dispatch = useDispatch()

@@ -1,4 +1,4 @@
-export const statusFilter = {
+export const statusFilters = {
     all: 'All',
     active: "Active",
     completed: "completed",

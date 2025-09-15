@@ -1,9 +1,9 @@
-import { getFilter } from "../../redux/selector";
-import { StatusFilter } from "../SttatusFilter/StatusFilter";
+import { getFilter, getTasks } from "../../redux/selector";
+// import { StatusFilter } from "../SttatusFilter/StatusFilter";
 import { Task } from "../Task/task";
 import css from "./TaskList.module.css";
 import { useSelector } from "react-redux";
-import {StatusFilter} from "../../redux/statusFilter"
+import {statusFilters} from "../../redux/statusFilter"
 
 export const TaskList = () => {
 
@@ -13,9 +13,9 @@ const status = useSelector(getFilter)
 
 const visibleTask = (tasks, status)=>{
   switch (status){
-    case StatusFilter.active:
+    case statusFilters.active:
       return tasks.filter(task => !task.completed)
-case "Completed":
+case  statusFilters.completed:
   return tasks.filter(task=> task.completed)
 
       default:
