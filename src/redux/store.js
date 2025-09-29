@@ -1,23 +1,11 @@
 
 import {combineReducers} from 'redux'
-import persistReducer from 'redux-persist/es/persistReducer'
 import storage from 'redux-persist/lib/storage'
 import { configureStore } from '@reduxjs/toolkit'
-
-import { persistStore } from 'redux-persist'
-import {
-  FLUSH, PAUSE,
-  PERSIST, PURGE,
-  REGISTER, REHYDRATE
-} from 'redux-persist';
 import { taskReducer } from './Slices/TaskSlice'
 import { filterReducer } from './Slices/FilterSlice'
 
-const persistCreate ={
-  key: "root",
-  storage,
 
-}
 
 const reducers = combineReducers({
 
@@ -25,20 +13,13 @@ const reducers = combineReducers({
   filters: filterReducer,
 })
 
-const persistedReduser = persistReducer(persistCreate, reducers)
-
 
 export const store = configureStore({
-reducer: persistedReduser,
-middleware: getDefaultMiddleware => getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
-    }
-  })
+reducer: reducers,
+
 })
 
 
-export const persistor = persistStore(store)
 
 
 // export const initialState = {
