@@ -41,3 +41,22 @@ export const deleteTask = createAsyncThunk(
         }
     }
 )
+
+
+export const switchtask = createAsyncThunk(
+    'tasks/switchTask',
+    async(task, { rejectedWithValue }) => {
+        const options = {
+            method: "PUT",
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify({...task, copleted: !task.completed}),
+        }
+        try{
+            const responce = await fetch(`https://68dab5e523ebc87faa3107d5.mockapi.io/tasks/${task.id}`,options)
+            return await responce.json()
+        } catch (error) {
+            return rejectedWithValue("Сталася помилка")
+        }
+    }
+)
+
