@@ -1,19 +1,20 @@
-// import { Button } from "components/Button/Button";
-import { MdAddTask } from "react-icons/md";
-import css from "./TaskForm.module.css";
 import { useDispatch } from "react-redux";
-import {addTasks} from '../../redux/Slices/TaskSlice'
+import { Button } from "../Button/Button";
+import css from "./TaskForm.module.css";
+import { addTasks } from "../../redux/actions";
 
 export const TaskForm = () => {
-const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-      const newTask ={id: Date.now(), text: event.target.value, completed: false}
-      dispatch(addTasks(newTask))
+    const newTask = {
+      id: Date.now(),
+      text: form.elements.text.value,
+      comleted: false,
+    };
+    dispatch(addTasks(newTask));
     form.reset();
-  
   };
 
   return (
@@ -24,7 +25,7 @@ const dispatch = useDispatch()
         name="text"
         placeholder="Enter task text..."
       />
-      <button type="submit">Add task</button>
+      <Button type="submit">Add task</Button>
     </form>
   );
 };
